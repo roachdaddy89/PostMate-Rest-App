@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "PostMate",
+    "slug": "postmate",
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.enginesin.postmate"
+    },
+    "android": {
+      "package": "com.enginesin.postmate"
+    },
+    "facebookScheme": "fb231447147761484",
+    "description": "A restful API explorer for your mobile. Love developing then this is for you if issues arise while on the go in terms of api access then view your collection of routes and send data off to see whats returned from live sites."
+  }
+}
