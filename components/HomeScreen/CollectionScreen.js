@@ -7,6 +7,10 @@ import MenuButton from '../Shared/MenuButton';
 import CollectionList from './CollectionList';
 
 export default class CollectionScreen extends Component {
+	static navigationOptions = {
+		headerTitle: 'Collections'
+	}
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -27,7 +31,7 @@ export default class CollectionScreen extends Component {
 	}
 
 	async componentDidMount() {
-		// Collections.handleRemoveAllCollections();
+		//Collections.handleRemoveAllCollections();
 		const response = await Collections.handleLoadCollections();
 
 		if (response.collections != null) {
@@ -39,8 +43,8 @@ export default class CollectionScreen extends Component {
 		const { navigation } = this.props;
 		return (
 			<View style={styles.container}>
-				<View style={styles.navHeader}>
-					<MenuButton navigation={navigation} />
+				<View>
+					{/* <MenuButton navigation={navigation} /> */}
 				</View>
 				<View style={styles.container}>
 					{
@@ -86,7 +90,7 @@ export default class CollectionScreen extends Component {
 						)
 					}
 
-					<ScrollView contentContainerStyle={styles.container}>
+					<ScrollView contentContainerStyle={styles.containerList}>
 						<CollectionList navigation={navigation} allcollections={this.state.collections} />
 					</ScrollView>
 
@@ -108,7 +112,7 @@ const { height, width } = Dimensions.get('window');
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		marginTop: height * .01
+		flexDirection: 'column'
 	},
 	tabBarInfoContainer: {
 		position: 'absolute',

@@ -24,11 +24,12 @@ export default class RouteList extends Component {
 
 	render() {
 		const list = ({ allroutes }) => {
+			console.log(allroutes);
 			if (allroutes) {
 				return allroutes.map(item => {
 					return (
 						<ListItem key={item.id} avatar onPress={() => this.handleOnPress(allroutes, item.id)}>
-							<Left>
+							<Left style={{ justifyContent: 'center' }}>
 								<Image
 									source={require('../../assets/Icons/route.png')}
 									style={{ width: 30, height: 30, marginTop: 5 }}
@@ -42,7 +43,7 @@ export default class RouteList extends Component {
 									{`${item.route}`}
 								</Text>
 							</Body>
-							<Right style={{ jsutifyContent: 'center' }}>
+							<Right style={{ justifyContent: 'center' }}>
 								<Icon name="heart" style={{ paddingRight: 5, fontSize: 30 }} />
 							</Right>
 						</ListItem>

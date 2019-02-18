@@ -12,20 +12,31 @@ const DrawerNavigator = createDrawerNavigator(
   {
     Home: {
       screen: CollectionScreen,
-    },
+    }
   },
   {
+    headerMode: 'none',
     contentComponent: ({ navigation }) => {
       return <MenuDrawer navigation={navigation} />
     },
   },
 );
 
+const Collections = createStackNavigator(
+  {
+    Collections: {
+      screen: CollectionScreen
+    },
+    RouteScreen: {
+      screen: RouteScreen
+    }
+  }
+);
 
 const App = createBottomTabNavigator(
   {
     Collections: {
-      screen: CollectionScreen
+      screen: Collections
     },
     Settings: {
       screen: Favorites
@@ -42,6 +53,7 @@ const App = createBottomTabNavigator(
         }
       },
     }),
+    headerMode: 'none',
     tabBarOptions: {
       activeTintColor: '#216F93',
       inactiveTintColor: 'gray',
@@ -49,39 +61,22 @@ const App = createBottomTabNavigator(
         fontSize: 12,
       },
       style: {
-        height: 55,
         borderTopColor: 'gray',
         borderTopWidth: 2,
       },
     },
-  },
-)
+  }
+);
 
 const Stack = createStackNavigator(
   {
-    DrawerNavigator: {
-      screen: DrawerNavigator,
-    },
     Home: {
       screen: App
-    },
-    RouteScreen: {
-      screen: RouteScreen
     }
   },
   {
     headerMode: 'none',
   }
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 
 export default createAppContainer(Stack);

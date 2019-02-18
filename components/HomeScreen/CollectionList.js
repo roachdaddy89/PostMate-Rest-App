@@ -42,7 +42,7 @@ export default class CollectionOverView extends Component {
 									{`${collection.subtitle}`}
 								</Text>
 							</Body>
-							<Right style={{ jsutifyContent: 'center' }}>
+							<Right style={{ justifyContent: 'center' }}>
 								<Icon name="heart" style={{ paddingRight: 5, fontSize: 30 }} />
 							</Right>
 						</ListItem>

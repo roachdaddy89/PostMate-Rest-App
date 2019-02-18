@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Dimensions, View, Text } from 'react-native';
+import { ScrollView, StyleSheet, Dimensions, View, Text, Platform } from 'react-native';
 import { Button as RNEButton, Overlay, Input } from 'react-native-elements';
 import MenuButton from '../Shared/MenuButton';
 import { Collections, Routes } from '../../lib/Helper';
 import RouteList from './RouteList';
 
 export default class RouteScreen extends Component {
+	static navigationOptions = {
+		headerTitle: 'Routes'
+	}
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -48,8 +52,10 @@ export default class RouteScreen extends Component {
 		const { navigation } = this.props;
 		return (
 			<View style={styles.container}>
-				<View style={styles.navHeader}>
-					<MenuButton navigation={navigation} />
+				<View>
+					<View>
+						{/* <MenuButton navigation={navigation} /> */}
+					</View>
 				</View>
 				<View style={styles.container}>
 					{
@@ -135,13 +141,29 @@ const { height, width } = Dimensions.get('window');
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		marginTop: height * .01
 	},
-	routeList: {
-		flex: 1,
-		marginTop: height * .1,
-		borderTopWidth: 1,
-		borderTopColor: 'gray'
+	tabBarInfoContainer: {
+		position: 'absolute',
+		bottom: 0,
+		left: 0,
+		right: 0,
+		...Platform.select({
+			ios: {
+				shadowColor: 'black',
+				shadowOffset: { height: -3 },
+				shadowOpacity: 0.1,
+				shadowRadius: 3,
+			},
+			android: {
+				elevation: 20,
+			},
+		}),
+		height: height * .08,
+		alignItems: 'center',
+		backgroundColor: '#f2f2f2',
+		paddingVertical: 10,
+		borderTopColor: 'grey',
+		borderTopWidth: 2
 	}
 });
 

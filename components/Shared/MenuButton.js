@@ -10,7 +10,10 @@ export default class MenuButton extends Component {
 				color="#000000"
 				size={32}
 				style={styles.menuIcon}
-				onPress={() => this.props.navigation.toggleDrawer()}
+				onPress={() => {
+					console.log('hello');
+					this.props.navigation.toggleDrawer()
+				}}
 			/>
 		)
 	}
